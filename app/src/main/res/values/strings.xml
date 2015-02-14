@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hobbit Kuca Vilenjaka</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_prva">Hobbit</string>
+    <string name="kraj_rada">Kraj Rada</string>
+    <string name="order">Narudzbina</string>
+    <string name="userchange">Promeni Korisnika</string>
+    <string name="waiter">ime</string>
+    <string name="title_activity_narudzbina_start">Hobbit</string>
+    <string name="back">Nazad na Pocetnu</string>
+    <string name="alkohol">Alk.Pica</string>
+    <string name="sokovi">Sokovi</string>
+    <string name="topli_napici">Napici</string>
+    <string name="jela">Jela</string>
+    <string name="salate">Salate</string>
+    <string name="prilozi">Prilozi</string>
+    <string name="sto">Broj Stola:</string>
+    <string name="check_order">Pregledaj Narudzdbinu</string>
+    <string name="title_activity_open_alistu">openAlistu</string>
+    <string name="back_menu">Nazad</string>
+    <string name="alcohol_list">Alkoholna Pica</string>
+    <string name="title_activity_jelo_detaljno">JeloDetaljno</string>
+    <string name="add_order">Dodaj</string>
+    <string name="kolicina">Kolicina</string>
+    <string name="editbutton">Izmeni</string>
+    <string name="deletebutton">Obrisi</string>
+    <string name="Podesavanje">server_settings</string>
+    <string name="title_activity_sokovi_lista">Sokovi</string>
+    <string name="title_activity_napici_lista">Topli Napici</string>
+    <string name="title_activity_jela_lista">Gotova Jela</string>
+    <string name="title_activity_salate_lista">Salate</string>
+    <string name="title_activity_prilozi_lista">Prilozi</string>
+    <string name="login_name">Ime:</string>
+    <string name="login_password">Lozinka :</string>
+    <string name="login_button">Prijava</string>
+    <string name="order_close">Zatvori Narudzbinu</string>
+    <string name="narudzbina_naziv">Naziv</string>
+    <string name="sto_narudzbina">Sto</string>
+    <string name="cena_narudzbina">Cena</string>
+    <string name="narudzbina_kolicina">Kolicina</string>
+
+</resources>

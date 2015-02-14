@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="rs.gajdar_design.hobbit_local.AlkoholLista">
+    <item android:id="@+id/nazad"
+        android:title="@string/back_menu"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="rs.gajdar_design.hobbit_local.Prva">
+    <item android:id="@+id/kraj"
+        android:title="@string/kraj_rada"
+        android:orderInCategory="100" app:showAsAction="always" />
+    <item android:id="@+id/settings"
+        android:title="Podesavanje Servera"
+        android:orderInCategory="101" app:showAsAction="collapseActionView" />
+</menu>

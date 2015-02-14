@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="rs.gajdar_design.hobbit_local" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".Prva"
+            android:label="@string/title_activity_prva" >
+        </activity>
+        <activity
+            android:name=".NarudzbinaStart"
+            android:label="@string/title_activity_narudzbina_start" >
+        </activity>
+        <activity
+            android:name=".AlkoholLista"
+            android:label="@string/alcohol_list" >
+        </activity>
+        <activity
+            android:name=".JeloDetaljno"
+            android:label="@string/title_activity_jelo_detaljno" >
+        </activity>
+        <activity
+            android:name=".SokoviLista"
+            android:label="@string/title_activity_sokovi_lista" >
+        </activity>
+        <activity
+            android:name=".NapiciLista"
+            android:label="@string/title_activity_napici_lista" >
+        </activity>
+        <activity
+            android:name=".JelaLista"
+            android:label="@string/title_activity_jela_lista" >
+        </activity>
+        <activity
+            android:name=".SalateLista"
+            android:label="@string/title_activity_salate_lista" >
+        </activity>
+        <activity
+            android:name=".PriloziLista"
+            android:label="@string/title_activity_prilozi_lista" >
+        </activity>
+    </application>
+
+</manifest>

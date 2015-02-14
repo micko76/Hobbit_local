@@ -1,0 +1,224 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="rs.gajdar_design.hobbit20.narudzbinaStart">
+
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
+                    android:id="@+id/tabnarudzbina"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/imeKonobaraNarudzbina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/waiter"
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/imeKonobaraNarudzbina"
+                        android:layout_marginTop="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/sto"
+                            android:textSize="35sp" />
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="fill_parent"
+                            android:layout_height="40sp"
+                            android:layout_weight="1"
+                            android:scrollbarSize="35sp"
+                            android:spinnerMode="dropdown"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linearLayout"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/alkoholButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:onClick="openAListu"
+                            android:text="@string/alkohol"
+                            android:textStyle="bold"
+                            android:textSize="35sp" />
+
+                        <Button
+                            android:id="@+id/sokoviButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:onClick="openSokListu"
+                            android:text="@string/sokovi"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/napiciButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:onClick="openNapListu"
+                            android:text="@string/topli_napici"
+                            android:textStyle="bold"
+                            android:textSize="35sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linearLayout1"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/jelaButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:onClick="openJListu"
+                            android:text="@string/jela"
+                            android:textStyle="bold"
+                            android:textSize="35sp" />
+
+                        <Button
+                            android:id="@+id/salateButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:onClick="openSalListu"
+                            android:text="@string/salate"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/priloziButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:onClick="openPrListu"
+                            android:text="@string/prilozi"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tabpregled"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/naslov"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Pregled Narudzbine"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="35sp" />
+
+                    <ListView
+                        android:id="@+id/listPregled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="600dp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Total:"
+                            android:id="@+id/textView"
+                            android:textStyle="normal|bold"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:id="@+id/textViewRacunica"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/zatvaranje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="zatvoriNarudzbinu"
+                        android:text="@string/order_close"
+                        android:textStyle="bold"
+                        android:textSize="35sp" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
+</RelativeLayout>
+
