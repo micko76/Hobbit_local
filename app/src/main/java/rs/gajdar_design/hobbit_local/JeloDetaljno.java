@@ -1,6 +1,7 @@
 package rs.gajdar_design.hobbit_local;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -10,9 +11,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 
@@ -27,6 +30,8 @@ public class JeloDetaljno extends Activity {
     Konobar waiter = new Konobar();
     ImageView slika;
     Narudzbina order = new Narudzbina();
+    Button dodaj;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,8 @@ public class JeloDetaljno extends Activity {
         String stavka = getIntent().getStringExtra("stavka");
         sto = getIntent().getStringExtra("brojStola");
         waiter = getIntent().getParcelableExtra("konobar");
+        dodaj = (Button) findViewById(R.id.buttonDodaj);
+
 
         //Citanje detalja o jelu iz baze
         db.openDataBase();
@@ -59,25 +66,42 @@ public class JeloDetaljno extends Activity {
         detaljnoIme.setText(izabrano.get_ime());
         detaljnoCena.setText(izabrano.get_cena() + " din.");
         slika.setImageBitmap(icon);
+
+        dodaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(kolicina.getText().toString().trim().length()>0){
+                   dodajNarudzbinu(v);
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"Morate uneti kolicinu",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
+
+
 
     public void dodajNarudzbinu(View v) {
-        order.setIdStola(sto);
-        order.setIdKorisnika(Integer.toString(waiter.get_id()));
-        order.setKolicina(kolicina.getText().toString());
-        order.setNazivStavke(izabrano.get_ime());
-        order.setCena(izabrano.get_cena());
-        order.setSifraStavke(izabrano.get_sifra());
-        db.openDataBase();
-        db.ubaciStavku(order);
-        db.close();
-        Intent i = new Intent(getApplicationContext(), NarudzbinaStart.class);
-        i.putExtra("konobar", waiter);
-        i.putExtra("brojStola", sto);
-        startActivity(i);
-        finish();
+
+            order.setIdStola(sto);
+            order.setIdKorisnika(Integer.toString(waiter.get_id()));
+            order.setKolicina(kolicina.getText().toString());
+            order.setNazivStavke(izabrano.get_ime());
+            order.setCena(izabrano.get_cena());
+            order.setSifraStavke(izabrano.get_sifra());
+            db.openDataBase();
+            db.ubaciStavku(order);
+            db.close();
+            Intent i = new Intent(getApplicationContext(), NarudzbinaStart.class);
+            i.putExtra("konobar", waiter);
+            i.putExtra("brojStola", sto);
+            startActivity(i);
+            finish();
+
+
+
+
 
     }
-
-
 }
