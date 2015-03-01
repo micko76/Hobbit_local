@@ -8,10 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
 
 
 public class AlkoholListaSlika extends ActionBarActivity {
@@ -37,11 +35,11 @@ public class AlkoholListaSlika extends ActionBarActivity {
         db.close();
         final Detalj[] spisak = new Detalj[brojac];
         for (int i = 0; i < brojac; i++) {
-            spisak[i]=new Detalj("","","");
-            String ime=alkohol.getString(0);
-            spisak[i].set_ime(ime) ;
+            spisak[i]=new Detalj();
+
+            spisak[i].set_ime(alkohol.getString(0)) ;
             spisak[i].set_idSlike(alkohol.getString(1));
-            spisak[i].set_cena(alkohol.getString(2));
+           // spisak[i].set_cena(alkohol.getString(2));
             alkohol.moveToNext();
         }
 
