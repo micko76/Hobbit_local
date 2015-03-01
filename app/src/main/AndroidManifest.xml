@@ -58,6 +58,10 @@
             android:name=".PriloziLista"
             android:label="@string/title_activity_prilozi_lista" >
         </activity>
+        <activity
+            android:name=".AlkoholListaSlika"
+            android:label="@string/title_activity_alkohol_lista_slika" >
+        </activity>
     </application>
 
 </manifest>

@@ -20,6 +20,12 @@ public class Detalj {
 
     public Detalj() {
     }
+    public Detalj(String ime,String cena,String id)
+    {
+        this._ime=ime;
+        this._cena=cena;
+        this._idSlike=id;
+    }
 
     public String get_cena() {
         return _cena;

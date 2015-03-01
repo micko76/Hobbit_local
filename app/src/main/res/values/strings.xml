@@ -42,5 +42,6 @@
     <string name="sto_narudzbina">Sto</string>
     <string name="cena_narudzbina">Cena</string>
     <string name="narudzbina_kolicina">Kolicina</string>
+    <string name="title_activity_alkohol_lista_slika">AlkoholListaSlika</string>
 
 </resources>

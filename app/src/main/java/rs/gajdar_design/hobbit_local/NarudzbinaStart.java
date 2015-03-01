@@ -221,7 +221,7 @@ public class NarudzbinaStart extends ActionBarActivity implements AdapterView.On
     }
 
     public void openAListu(View v) {
-        Intent i = new Intent(this, AlkoholLista.class);
+        Intent i = new Intent(this, AlkoholListaSlika.class);
         i.putExtra("konobar", waiter);
         i.putExtra("brojStola", selektovano);
         startActivity(i);
