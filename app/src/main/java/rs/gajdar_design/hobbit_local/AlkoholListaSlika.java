@@ -33,13 +33,13 @@ public class AlkoholListaSlika extends ActionBarActivity {
         alkohol = db.getAlkoholSlike();
         int brojac = alkohol.getCount();
         db.close();
-        final Detalj[] spisak = new Detalj[brojac];
+        final listaDetalj[] spisak = new listaDetalj[brojac];
         for (int i = 0; i < brojac; i++) {
-            spisak[i]=new Detalj();
+            spisak[i]=new listaDetalj();
 
             spisak[i].set_ime(alkohol.getString(0)) ;
             spisak[i].set_idSlike(alkohol.getString(1));
-           // spisak[i].set_cena(alkohol.getString(2));
+
             alkohol.moveToNext();
         }
 
@@ -52,7 +52,7 @@ public class AlkoholListaSlika extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    Detalj stavkaKliknuta = spisak[position];
+                    listaDetalj stavkaKliknuta = spisak[position];
                     Intent showDetails = new Intent(getApplicationContext(), JeloDetaljno.class);
                     showDetails.putExtra("stavka", stavkaKliknuta.get_ime());
                     showDetails.putExtra("brojStola", sto);

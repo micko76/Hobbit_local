@@ -109,7 +109,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public Cursor getAlkoholSlike() {
 
-        Cursor c = baza.query("hobbitmeni", new String[]{"Ime","Id_slike","Cena"}, "tip ='alkoholno pice';", null, null, null, null);
+        Cursor c = baza.query("hobbitmeni", new String[]{"Ime","Id_slike"}, "tip ='alkoholno pice';", null, null, null, null);
 
         if (c != null) {
             c.moveToFirst();

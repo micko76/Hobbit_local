@@ -16,15 +16,15 @@ import java.io.ByteArrayInputStream;
 /**
  * Created by Milan on 3/1/2015.
  */
-public class CustomAdapter extends ArrayAdapter<Detalj>{
+public class CustomAdapter extends ArrayAdapter<listaDetalj>{
 
     public DBHelper db=new DBHelper(getContext());
     public Cursor c;
     public TextView nazivStavke;
     public ImageView slikaStavke;
-    public Detalj pojedinacnaStavka;
+    public listaDetalj pojedinacnaStavka;
 
-    public CustomAdapter(Context context, Detalj[] stavke)
+    public CustomAdapter(Context context, listaDetalj[] stavke)
     {
         super(context,R.layout.meni_celija_slika ,stavke);
     }
@@ -38,14 +38,22 @@ public class CustomAdapter extends ArrayAdapter<Detalj>{
         nazivStavke=(TextView) customView.findViewById(R.id.nazivStavke);
         slikaStavke= (ImageView) customView.findViewById(R.id.slikaStavke);
 
-        db.openDataBase();
-        c = db.getSlika(pojedinacnaStavka.get_idSlike());
-        db.close();
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(c.getBlob(0));
-        Bitmap icon = BitmapFactory.decodeStream(inputStream);
+        Bitmap icon = DajSliku(pojedinacnaStavka.get_idSlike());
+
 
         nazivStavke.setText(pojedinacnaStavka.get_ime());
         slikaStavke.setImageBitmap(icon);
         return customView;
+    }
+
+    Bitmap DajSliku(String id)
+    {
+        Bitmap icon;
+        db.openDataBase();
+        c = db.getSlika(pojedinacnaStavka.get_idSlike());
+        db.close();
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(c.getBlob(0));
+        return icon = BitmapFactory.decodeStream(inputStream);
+
     }
 }
