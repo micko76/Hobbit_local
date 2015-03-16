@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by Milan on 3/1/2015.
@@ -37,23 +41,19 @@ public class CustomAdapter extends ArrayAdapter<listaDetalj>{
         pojedinacnaStavka = getItem(position);
         nazivStavke=(TextView) customView.findViewById(R.id.nazivStavke);
         slikaStavke= (ImageView) customView.findViewById(R.id.slikaStavke);
-
-        Bitmap icon = DajSliku(pojedinacnaStavka.get_idSlike());
-
-
         nazivStavke.setText(pojedinacnaStavka.get_ime());
-        slikaStavke.setImageBitmap(icon);
+        db.openDataBase();
+        c=db.getSlika(pojedinacnaStavka.get_idSlike());
+        DajSliku(c);
+        db.close();
         return customView;
     }
 
-    Bitmap DajSliku(String id)
+    void DajSliku(Cursor c)
     {
         Bitmap icon;
-        db.openDataBase();
-        c = db.getSlika(pojedinacnaStavka.get_idSlike());
-        db.close();
         ByteArrayInputStream inputStream = new ByteArrayInputStream(c.getBlob(0));
-        return icon = BitmapFactory.decodeStream(inputStream);
-
+        icon = BitmapFactory.decodeStream(inputStream);
+        slikaStavke.setImageBitmap(icon);
     }
 }

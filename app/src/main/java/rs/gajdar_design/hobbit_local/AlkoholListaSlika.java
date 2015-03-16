@@ -2,6 +2,7 @@ package rs.gajdar_design.hobbit_local;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,7 +20,8 @@ public class AlkoholListaSlika extends ActionBarActivity {
     private Konobar waiter;
     private String sto;
     DBHelper db = new DBHelper(this);
-
+    listaDetalj[] spisak;
+    int brojac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class AlkoholListaSlika extends ActionBarActivity {
         sto = getIntent().getStringExtra("brojStola");
 
         //citasnje pica iz baze i kopiranje u string array
-        db.openDataBase();
+       /* db.openDataBase();
         alkohol = db.getAlkoholSlike();
         int brojac = alkohol.getCount();
         db.close();
@@ -41,11 +43,10 @@ public class AlkoholListaSlika extends ActionBarActivity {
             spisak[i].set_idSlike(alkohol.getString(1));
 
             alkohol.moveToNext();
-        }
+        }*/
 
         //punjenje liste
-        CustomAdapter adapter = new CustomAdapter(this,spisak);
-        alkoholLista.setAdapter(adapter);
+        new NapuniListu().execute(new DBHelper(this));
 
         //Vezivanje Listenera
         alkoholLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,7 +68,38 @@ public class AlkoholListaSlika extends ActionBarActivity {
 
 
     }
+    public void PopuniListu(Cursor alkohol)
+    {
+       brojac = alkohol.getCount();
+       spisak=new listaDetalj[brojac];
+        for (int i = 0; i < brojac; i++) {
+            spisak[i] = new listaDetalj();
 
+            spisak[i].set_ime(alkohol.getString(0));
+            spisak[i].set_idSlike(alkohol.getString(1));
+
+            alkohol.moveToNext();
+        }
+        CustomAdapter adapter = new CustomAdapter(this,spisak);
+        alkoholLista.setAdapter(adapter);
+
+    }
+    public class NapuniListu extends AsyncTask<DBHelper,Void,Cursor>
+    {
+        @Override
+        protected void onPostExecute(Cursor alkohol) {
+            PopuniListu(alkohol);
+        }
+
+        @Override
+        protected Cursor doInBackground(DBHelper... params) {
+            params[0].openDataBase();
+            Cursor c = params[0].getAlkoholSlike();
+            params[0].close();
+            return c;
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
